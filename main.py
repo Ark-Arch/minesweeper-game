@@ -4,7 +4,7 @@ from settings import WIDTH         as window_width
 from settings import HEIGHT        as window_height
 from utils    import width_prct    as width_resize
 from utils    import height_prct   as height_resize
-
+from cell     import Cell
 
 root = Tk() # instantiating a window
 
@@ -39,6 +39,16 @@ center_frame = Frame(
         height = height_resize(85)
         )
 center_frame.place(x = 210,y= 70)
+
+
+for x in range(5):
+    for y in range(5):
+        unit_cell = Cell()
+        unit_cell.create_btn_object(center_frame)
+        unit_cell.cell_btn_object.grid(column=x, row=y)
+
+
+
 
 
 # Run the window
