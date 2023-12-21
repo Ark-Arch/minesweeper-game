@@ -30,3 +30,49 @@ center to display the game
 -> create a simple library that performs utilities to prevent hardcoding of files.
 
 
+
+CREATING THE CELLS FOR THE GAME
+- create the cells automatically
+- take note of the behaviour of the cells. so that it responds to mouse clicks.
+
+solution ==> object oriented programming
+-> create an class called cell, with certain properties, and methods.
+then, with for loop, i then instantiate objects of the class into the number of times I need it for.
+
+
+* a .grid method was used to place the buttons or cells rather than .place method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
