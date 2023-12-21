@@ -2,6 +2,7 @@
 from tkinter  import *
 from settings import WIDTH         as window_width
 from settings import HEIGHT        as window_height
+from settings import GRID_SIZE     as grid_size
 from utils    import width_prct    as width_resize
 from utils    import height_prct   as height_resize
 from cell     import Cell
@@ -41,8 +42,8 @@ center_frame = Frame(
 center_frame.place(x = 210,y= 70)
 
 
-for x in range(5):
-    for y in range(5):
+for x in range(grid_size):
+    for y in range(grid_size):
         unit_cell = Cell()
         unit_cell.create_btn_object(center_frame)
         unit_cell.cell_btn_object.grid(column=x, row=y)
