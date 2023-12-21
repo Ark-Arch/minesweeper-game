@@ -1,0 +1,18 @@
+GAME OBJECTIVES AND THOUGHT PROCESSES WHILE BUILDING THE PROJECT!!!
+
+the player guesses what cells have mines and what does not!.
+LEFT-CLICK on cells without mines to progress in the game
+
+-> if a cell with mine is being LEFT-CLICK, then the game would be over, but if you RIGHT-CLICK on the the cell that correctly has a mine, you are still in the game then.
+
+* THE USER IS GIVEN CERTAIN INITIALIZATIONS
+-> the user is being told the number of mines that exists in the cell-graph.
+-> the user is being told the number of cells left to be identified as mine-trap or non-mine-trap. 
+
+
+ANOTHER NOTE:
+-> the number revealed on a cell after it has being left-clicked, is to tell the number of cells around itself that has a mine.
+
+
+THOUGHT PROCESSES
+- for a board game (2d) GAME, i would be using the TKINTER library
