@@ -6,9 +6,13 @@ class Cell:
         self.is_mine = is_mine
         self.cell_btn_object = None
 
+
+    # INSTANE METHODS
     def create_btn_object(self, container):
         btn = Button(
                 container,
+                width = 8,
+                height = 4,
                 text = 'Text',
                 bg = 'pink'
                 )
