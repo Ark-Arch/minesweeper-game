@@ -30,6 +30,38 @@ center to display the game
 -> create a simple library that performs utilities to prevent hardcoding of files.
 
 
+CREATING EVENTS FOR THE BUTTONS/CELLS
+events - list of actions to be taken when button is clicked.
+
+event for right-click, and event for left-click.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 CREATING THE CELLS FOR THE GAME
 - create the cells automatically
