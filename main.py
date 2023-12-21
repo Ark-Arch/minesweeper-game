@@ -32,6 +32,14 @@ left_frame = Frame(
         )
 left_frame.place(x = 20, y=70)
 
+center_frame = Frame(
+        root, 
+        bg = 'yellow',
+        width = width_resize(71.25),
+        height = height_resize(85)
+        )
+center_frame.place(x = 210,y= 70)
+
 
 # Run the window
 root.mainloop() # just to keep the window on until it is cancelled by the user
