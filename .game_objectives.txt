@@ -16,3 +16,17 @@ ANOTHER NOTE:
 
 THOUGHT PROCESSES
 - for a board game (2d) GAME, i would be using the TKINTER library
+
+the window = 800x400
+
+a top-frame = (800-40)x 50
+left-frame = 760/
+
+left sidebar to display score
+
+center to display the game
+
+-> create a simple library that saves the settings. settings.py
+-> create a simple library that performs utilities to prevent hardcoding of files.
+
+
