@@ -27,7 +27,7 @@ class Cell:
                 container,
                 width = 8,
                 height = 4,
-                text = self.__str__(),
+                #text = self.__str__(),
                 bg = 'pink'
                 )
 
@@ -35,9 +35,16 @@ class Cell:
         btn.bind('<Button-3>', self.right_click_response)
         self.cell_btn_object = btn
 
+    def show_mine(self):
+        # write a logic that interruppts the game
+        # and that displays a message that the play has lost!
+
+        # during development, it suffices to change the bg color
+        self.cell_btn_object.configure(bg = 'red')
+
     def left_click_response(self, event):
-        print(event)
-        print("I am left clicked!")
+        if self.is_mine:
+            self.show_mine()
 
     def right_click_response(self, event):
         print(event)

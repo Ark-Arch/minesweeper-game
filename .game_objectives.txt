@@ -36,33 +36,6 @@ events - list of actions to be taken when button is clicked.
 event for right-click, and event for left-click.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 CREATING THE CELLS FOR THE GAME
 - create the cells automatically
 - take note of the behaviour of the cells. so that it responds to mouse clicks.
@@ -77,15 +50,20 @@ then, with for loop, i then instantiate objects of the class into the number of 
 
 
 
+CREATING AN ALGORITHM THAT PLACES MINES (UNFORBIDDEN CELL LEFT CLICKS) INTO THE CELL GRID
+
+-> a static method that does not take in any parameters-> such self or cls
+
+- how we can store all instances into a list.
+  in order to have control on further actions to be taken on the instances.
+   i therefore created class methods for this functionality.
 
 
+-> CREATE A RANDOM LOGIC IN ORDER TO RANDOMISE THE MINES LOCATIONS
 
 
-
-
-
-
-
+EVENT??
+- whenever i click on a cell, it should display how many mines surround the cell.
 
 
 
