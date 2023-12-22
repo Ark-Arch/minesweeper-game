@@ -2,10 +2,15 @@ from tkinter import Button
 
 
 class Cell:
-    def __init__(self, is_mine=False):
+    def __init__(self, x,y, is_mine=False):
         self.is_mine = is_mine
         self.cell_btn_object = None
+        self.x = x
+        self.y = y
 
+
+    def __str__(self):
+        return f"{self.x},{self.y}"
 
     # INSTANE METHODS
     def create_btn_object(self, container):
@@ -13,7 +18,7 @@ class Cell:
                 container,
                 width = 8,
                 height = 4,
-                text = 'Text',
+                text = self.__str__(),
                 bg = 'pink'
                 )
 
