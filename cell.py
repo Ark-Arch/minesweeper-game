@@ -15,7 +15,7 @@ class Cell:
         # i could have easily written the below => Cell.all.append(self)
 
 
-    # INSTANE METHODS
+    # INSTANCE METHODS
     def __str__(self):
         return f"{self.x},{self.y}"
 
@@ -27,10 +27,11 @@ class Cell:
                 container,
                 width = 8,
                 height = 4,
-                #text = self.__str__(),
+                text = self.__str__(),
                 bg = 'pink'
                 )
 
+        # the buttons are bound to the functions
         btn.bind('<Button-1>', self.left_click_response)
         btn.bind('<Button-3>', self.right_click_response)
         self.cell_btn_object = btn
@@ -42,9 +43,16 @@ class Cell:
         # during development, it suffices to change the bg color
         self.cell_btn_object.configure(bg = 'red')
 
+    def show_surrounding_mine_cells(self):
+        pass
+
+
     def left_click_response(self, event):
         if self.is_mine:
             self.show_mine()
+        else:
+            self.show_surrounding_mine_cells()
+
 
     def right_click_response(self, event):
         print(event)

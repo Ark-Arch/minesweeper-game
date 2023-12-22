@@ -19,7 +19,7 @@ root.configure(bg='blue') # set a background color for the window
 
 top_frame = Frame(
         root,
-        bg='red', 
+        bg='violet', 
         width = width_resize(95),
         height = height_resize(8.333),
         )
@@ -51,8 +51,9 @@ for x in range(grid_size):
 print(Cell.get_cell_list())
 
 Cell.randomize_mines()
-for c in Cell.get_cell_list():
-    print(c.is_mine)
+for c in Cell.get_cell_list()[0:2]:
+    #print(c.is_mine)
+    print(c.show_surrounding_mine_cells())
 
 # Run the window
 root.mainloop() # just to keep the window on until it is cancelled by the user
