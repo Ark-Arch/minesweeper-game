@@ -1,5 +1,6 @@
-from tkinter import Button
+from  tkinter   import Button
 import random
+from  settings  import MINES_COUNT   as  no_of_mines
 
 class Cell:
     all = [] #this is a class attribute a collection of all instances created
@@ -56,7 +57,6 @@ class Cell:
     # STATIC METHOD
     @staticmethod
     def randomize_mines():
-        no_of_mines = 9
         picked_cells = random.sample(  # this then becomes a list of Cell objects
                 Cell.get_cell_list(),
                 no_of_mines,
