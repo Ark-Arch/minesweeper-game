@@ -48,7 +48,11 @@ for x in range(grid_size):
         unit_cell.create_btn_object(center_frame)
         unit_cell.cell_btn_object.grid(column=x, row=y)
 
-print(Cell.get_cell_list_properties())
+print(Cell.get_cell_list())
+
+Cell.randomize_mines()
+for c in Cell.get_cell_list():
+    print(c.is_mine)
 
 # Run the window
 root.mainloop() # just to keep the window on until it is cancelled by the user

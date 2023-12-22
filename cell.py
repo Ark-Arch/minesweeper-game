@@ -1,5 +1,5 @@
 from tkinter import Button
-
+import random
 
 class Cell:
     all = [] #this is a class attribute a collection of all instances created
@@ -17,6 +17,9 @@ class Cell:
     # INSTANE METHODS
     def __str__(self):
         return f"{self.x},{self.y}"
+
+    def __repr__(self):
+        return f"Cell({self.x}, {self.y})"
 
     def create_btn_object(self, container):
         btn = Button(
@@ -46,12 +49,18 @@ class Cell:
         cls.all.append(cell)
 
     @classmethod
-    def get_cell_list_properties(cls):
-        return len(cls.all),cls.all
+    def get_cell_list(cls):
+        return cls.all
 
 
     # STATIC METHOD
     @staticmethod
     def randomize_mines():
-        ...
+        no_of_mines = 9
+        picked_cells = random.sample(  # this then becomes a list of Cell objects
+                Cell.get_cell_list(),
+                no_of_mines,
+                )
+        for picked_cell in picked_cells:
+            picked_cell.is_mine = True
 
