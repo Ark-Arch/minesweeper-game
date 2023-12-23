@@ -67,7 +67,11 @@ EVENT??
 - this would require a method that takes in x,y values and then provides me the objects.
 
 
-
+MORE FUNCTIONALITIES
+- display all clickable cells
+- automatically open all the surrounding cells without mines in case of zero mines
+	that is if non-mine cell reveals zero mines,
+	it should automatically reveal the no of mines surrounding other cells
 
 
 

@@ -73,6 +73,9 @@ class Cell:
         if self.is_mine:
             self.show_mine()
         else:
+            if self.get_length_of_surrounding_mine_cells == 0:
+                for cell in self.surrounding_cells:
+                    cell.show_no_of_surrounding_mine_cells()
             self.show_no_of_surrounding_mine_cells()
 
 
