@@ -64,9 +64,7 @@ CREATING AN ALGORITHM THAT PLACES MINES (UNFORBIDDEN CELL LEFT CLICKS) INTO THE 
 
 EVENT??
 - whenever i click on a cell, it should display how many mines surround the cell.
-
-
-
+- this would require a method that takes in x,y values and then provides me the objects.
 
 
 

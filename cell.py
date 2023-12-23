@@ -13,7 +13,27 @@ class Cell:
         # Append every cell object to the cell.all class attribute list
         Cell.append_cell(self)
         # i could have easily written the below => Cell.all.append(self)
+    
+    #Getter
+    @property
+    def surrounding_cells(self):
+        _surrounding_cells = []
 
+        x = [self.x-1, self.x, self.x+1]
+        y = [self.y-1, self.y, self.y+1]
+
+        for i in x:
+            for j in y:
+                _surrounding_cells.append(Cell.get_cell_by_coordinates(i,j))
+
+        _surrounding_cells.remove(self)
+
+        _surrounding_cells = [cell for cell in _surrounding_cells if cell is not None]
+        return _surrounding_cells
+
+    @property
+    def get_length_of_surrounding_mine_cells(self):
+        return len( [cell for cell in self.surrounding_cells if cell.is_mine is True] )
 
     # INSTANCE METHODS
     def __str__(self):
@@ -42,16 +62,17 @@ class Cell:
 
         # during development, it suffices to change the bg color
         self.cell_btn_object.configure(bg = 'red')
+    
 
-    def show_surrounding_mine_cells(self):
-        pass
+    def show_no_of_surrounding_mine_cells(self):
+        print(self.get_length_of_surrounding_mine_cells)
 
 
     def left_click_response(self, event):
         if self.is_mine:
             self.show_mine()
         else:
-            self.show_surrounding_mine_cells()
+            self.show_no_of_surrounding_mine_cells()
 
 
     def right_click_response(self, event):
@@ -67,6 +88,13 @@ class Cell:
     @classmethod
     def get_cell_list(cls):
         return cls.all
+
+    @classmethod
+    def get_cell_by_coordinates(cls, x, y):
+        # return a cell object based on the values of x and y
+        for cell in cls.all:
+            if cell.x == x and cell.y == y:
+                return cell
 
 
     # STATIC METHOD
