@@ -47,7 +47,7 @@ class Cell:
                 container,
                 width = 8,
                 height = 4,
-                text = self.__str__(),
+                #text = self.__str__(),
                 bg = 'pink'
                 )
 
@@ -66,6 +66,7 @@ class Cell:
 
     def show_no_of_surrounding_mine_cells(self):
         print(self.get_length_of_surrounding_mine_cells)
+        self.cell_btn_object.configure(text = self.get_length_of_surrounding_mine_cells)
 
 
     def left_click_response(self, event):
