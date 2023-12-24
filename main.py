@@ -49,13 +49,17 @@ for x in range(grid_size):
         unit_cell.cell_btn_object.grid(column=x, row=y)
 
 Cell.randomize_mines()
+
 Cell.create_cell_count_label(left_frame)
-
-
-
-# Debug Lines
 Cell.cell_count_label_object.place(
         x=0,y=0
+        )
+
+Cell.create_motivation_label(top_frame)
+Cell.motivation_object.place(
+        relx = 0.5,
+        rely = 0.5,
+        anchor = CENTER
         )
 
 print(Cell.get_cell_list())

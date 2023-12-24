@@ -11,7 +11,9 @@ import ctypes
 
 class Cell:
     all = [] #this is a class attribute a collection of all instances created
+    motivational_messages = ['Way to go!','Phew!... That was close!','You are doing it!','Dont you give up now!']
     cell_count_label_object = None
+    motivation_object = None
     cell_count = no_of_cells
     def __init__(self, x,y, is_mine=False):
         self.is_mine = is_mine
@@ -69,17 +71,6 @@ class Cell:
         btn.bind('<Button-3>', self.right_click_response)
         self.cell_btn_object = btn
 
-    @staticmethod
-    def create_cell_count_label(container):
-        lbl = Label(
-        	container,
-            text = f"Safe Cells Left: {Cell.cell_count}",
-            bg = 'black',
-            fg = 'white',
-            font=("", 14)
-        )
-        Cell.cell_count_label_object = lbl
-
 
     def show_mine(self):
         # write a logic that interruppts the game
@@ -97,6 +88,10 @@ class Cell:
             Cell.cell_count -= 1
             print(self.get_length_of_surrounding_mine_cells)
             self.cell_btn_object.configure(text = self.get_length_of_surrounding_mine_cells)
+            if Cell.motivation_object:
+                Cell.motivation_object.configure(
+                        text = f"{random.choice(Cell.motivational_messages)}"
+                        )
             if Cell.cell_count_label_object:
                 Cell.cell_count_label_object.configure(
                         text = f"Cells Left: {Cell.cell_count}"
@@ -117,6 +112,16 @@ class Cell:
                 for cell in self.surrounding_cells:
                     cell.show_no_of_surrounding_mine_cells()
             self.show_no_of_surrounding_mine_cells()
+            # when the cell_count equals mine_count, then user has won!
+            if Cell.cell_count == no_of_mines:
+                self.cell_btn_object.configure(command = Cell.congratulations)
+
+
+
+
+        #Cancel all Left and Right click events if the cell is already opened
+        self.cell_btn_object.unbind('<Button-1>')
+        self.cell_btn_object.unbind('<Button-3>')
 
 
     def right_click_response(self, event):
@@ -152,14 +157,47 @@ class Cell:
 
     # STATIC METHOD
     @staticmethod
+    def create_cell_count_label(container):
+        lbl = Label(
+        	container,
+            text = f"Cells Left: {Cell.cell_count}",
+            bg = 'black',
+            fg = 'white',
+            font=("", 14)
+        )
+        Cell.cell_count_label_object = lbl
+
+    @staticmethod
+    def create_motivation_label(container):
+        lbl = Label(
+                container,
+                text = f"YOU ARE WELCOME TO THE MINESWEEPER GAME!. ENJOY!!!",
+                bg = "black",
+                fg = "white",
+                font = ("", 14)
+                )
+        Cell.motivation_object = lbl
+
+
+    @staticmethod
     def game_over():
         note = "Sorry, you've clicked on a mine.\nWould you like to retry the game?"
         if mb.askyesno("GAME OVER", note):
             #wrote a script to restart the game
             os.execl(sys.executable,'python3', 'main.py', *sys.argv[1:])
         else:
-            mb.showinfo("YOU GAVE UP!", "You have quit the game")
+            mb.showinfo("YOU GAVE UP!", "You have quitted the game")
             sys.exit()
+
+    @staticmethod
+    def congratulations():
+        note = "Hurray!, \nYou have just safely maneuvered your way out of the mines\nWould you like to re-take the challenge?"
+        if mb.askyesno("CONGRATULATIONS", note):
+            os.execl(sys.executable, 'python3', 'main.py', *sys.argv[1:])
+        else:
+            mb.showinfo("YOU VICTOR!", "You can take your well-deserved rest now!")
+            sys.exit()
+
 
     @staticmethod
     def randomize_mines():
