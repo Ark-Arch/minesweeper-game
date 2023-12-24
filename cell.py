@@ -5,6 +5,8 @@ import random
 from  settings  import MINES_COUNT   as  no_of_mines
 from  settings  import CELL_COUNT    as  no_of_cells
 
+import os 
+import sys
 import ctypes
 
 class Cell:
@@ -147,7 +149,13 @@ class Cell:
     # STATIC METHOD
     @staticmethod
     def game_over():
-        mb.showerror("GAME OVER", "sorry, you've clicked on a mine")
+        note = "Sorry, you've clicked on a mine.\nWould you like to retry the game?"
+        if mb.askyesno("GAME OVER", note):
+            #wrote a script to restart the game
+            os.execl(sys.executable,'python3', 'main.py', *sys.argv[1:])
+        else:
+            mb.showinfo("YOU GAVE UP!", "You have quit the game")
+            sys.exit()
 
     @staticmethod
     def randomize_mines():

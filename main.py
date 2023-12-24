@@ -51,6 +51,8 @@ for x in range(grid_size):
 Cell.randomize_mines()
 Cell.create_cell_count_label(left_frame)
 
+
+
 # Debug Lines
 Cell.cell_count_label_object.place(
         x=0,y=0
@@ -59,6 +61,7 @@ Cell.cell_count_label_object.place(
 print(Cell.get_cell_list())
 the_cell = Cell.get_cell_by_coordinates(0,0)
 print(f'{the_cell}')
+
 
 # Run the window
 root.mainloop() # just to keep the window on until it is cancelled by the user
