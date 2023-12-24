@@ -101,6 +101,10 @@ class Cell:
                 Cell.cell_count_label_object.configure(
                         text = f"Cells Left: {Cell.cell_count}"
                         )
+            # if it was considered a possible mine, then it makes sense to reconfigure the background color
+            self.cell_btn_object.configure(
+                    bg = self.original_button_color
+                    )
         self.is_opened = True
 
 
