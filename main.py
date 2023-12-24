@@ -48,13 +48,13 @@ for x in range(grid_size):
         unit_cell.create_btn_object(center_frame)
         unit_cell.cell_btn_object.grid(column=x, row=y)
 
-#DEBUG LINES
+Cell.randomize_mines()
 Cell.create_cell_count_label(left_frame)
+
+# Debug Lines
 Cell.cell_count_label_object.place(
         x=0,y=0
         )
-
-Cell.randomize_mines()
 
 print(Cell.get_cell_list())
 the_cell = Cell.get_cell_by_coordinates(0,0)

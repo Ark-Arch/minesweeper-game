@@ -1,8 +1,11 @@
 from  tkinter   import Button
+from  tkinter   import messagebox as mb
 from  tkinter   import Label
 import random
 from  settings  import MINES_COUNT   as  no_of_mines
 from  settings  import CELL_COUNT    as  no_of_cells
+
+import ctypes
 
 class Cell:
     all = [] #this is a class attribute a collection of all instances created
@@ -11,7 +14,9 @@ class Cell:
     def __init__(self, x,y, is_mine=False):
         self.is_mine = is_mine
         self.is_opened = False
+        self.is_mine_candidate = False
         self.cell_btn_object = None
+        self.original_button_color = None
         self.x = x
         self.y = y
 
@@ -55,6 +60,7 @@ class Cell:
                 #text = self.__str__(),
                 bg = 'pink'
                 )
+        self.original_button_color = btn.cget("background")
 
         # the buttons are bound to the functions
         btn.bind('<Button-1>', self.left_click_response)
@@ -79,6 +85,9 @@ class Cell:
 
         # during development, it suffices to change the bg color
         self.cell_btn_object.configure(bg = 'red')
+        #ctypes.windll.user32.MessageBoxW(0, 'You clicked on a mine', 'Game Over', 0)
+        self.cell_btn_object.configure(command = Cell.game_over)
+
     
 
     def show_no_of_surrounding_mine_cells(self):
@@ -105,8 +114,17 @@ class Cell:
 
 
     def right_click_response(self, event):
-        print(event)
-        print("I am right clicked")
+        if not self.is_mine_candidate:
+            self.cell_btn_object.configure(
+                    bg = "orange"
+                    )
+            self.is_mine_candidate = True
+        else:
+            self.cell_btn_object.configure(
+                    bg = self.original_button_color
+                    )
+            self.is_mine_candidate = False
+
 
 
     # CLASS METHODS
@@ -127,6 +145,10 @@ class Cell:
 
 
     # STATIC METHOD
+    @staticmethod
+    def game_over():
+        mb.showerror("GAME OVER", "sorry, you've clicked on a mine")
+
     @staticmethod
     def randomize_mines():
         picked_cells = random.sample(  # this then becomes a list of Cell objects

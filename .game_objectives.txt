@@ -80,6 +80,9 @@ MORE FUNCTIONALITIES
 
 
 
+ANOTHER FUNCTIONALITY
+-> provide the game user the opportunity to use the right click button of the mouse to indicate possible mines surrounding a cell.
+   and to also unmark it as well
 
 
 
