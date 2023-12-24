@@ -1,0 +1,94 @@
+GAME OBJECTIVES AND THOUGHT PROCESSES WHILE BUILDING THE PROJECT!!!
+
+NOTE FOR LATER:
+- create a communication between the desktop app and a web server using django
+- include authentication and rest as well.
+- consider dockerizing the tkinter app as well
+
+the player guesses what cells have mines and what does not!.
+LEFT-CLICK on cells without mines to progress in the game
+
+-> if a cell with mine is being LEFT-CLICK, then the game would be over, but if you RIGHT-CLICK on the the cell that correctly has a mine, you are still in the game then.
+
+* THE USER IS GIVEN CERTAIN INITIALIZATIONS
+-> the user is being told the number of mines that exists in the cell-graph.
+-> the user is being told the number of cells left to be identified as mine-trap or non-mine-trap. 
+
+
+ANOTHER NOTE:
+-> the number revealed on a cell after it has being left-clicked, is to tell the number of cells around itself that has a mine.
+
+
+THOUGHT PROCESSES
+- for a board game (2d) GAME, i would be using the TKINTER library
+
+the window = 800x400
+
+a top-frame = (800-40)x 50
+left-frame = 760/
+
+left sidebar to display score
+
+center to display the game
+
+-> create a simple library that saves the settings. settings.py
+-> create a simple library that performs utilities to prevent hardcoding of files.
+
+
+CREATING EVENTS FOR THE BUTTONS/CELLS
+events - list of actions to be taken when button is clicked.
+
+event for right-click, and event for left-click.
+
+
+CREATING THE CELLS FOR THE GAME
+- create the cells automatically
+- take note of the behaviour of the cells. so that it responds to mouse clicks.
+
+solution ==> object oriented programming
+-> create an class called cell, with certain properties, and methods.
+then, with for loop, i then instantiate objects of the class into the number of times I need it for.
+
+
+* a .grid method was used to place the buttons or cells rather than .place method
+
+
+
+
+CREATING AN ALGORITHM THAT PLACES MINES (UNFORBIDDEN CELL LEFT CLICKS) INTO THE CELL GRID
+
+-> a static method that does not take in any parameters-> such self or cls
+
+- how we can store all instances into a list.
+  in order to have control on further actions to be taken on the instances.
+   i therefore created class methods for this functionality.
+
+
+-> CREATE A RANDOM LOGIC IN ORDER TO RANDOMISE THE MINES LOCATIONS
+
+
+EVENT??
+- whenever i click on a cell, it should display how many mines surround the cell.
+- this would require a method that takes in x,y values and then provides me the objects.
+
+
+MORE FUNCTIONALITIES
+- display all clickable cells
+- automatically open all the surrounding cells without mines in case of zero mines
+	that is if non-mine cell reveals zero mines,
+	it should automatically reveal the no of mines surrounding other cells
+
+
+
+ANOTHER FUNCTIONALITY
+-> provide the game user the opportunity to use the right click button of the mouse to indicate possible mines surrounding a cell.
+   and to also unmark it as well
+
+
+
+
+
+
+
+
+
