@@ -1,11 +1,16 @@
 from  tkinter   import Button
+from  tkinter   import Label
 import random
 from  settings  import MINES_COUNT   as  no_of_mines
+from  settings  import CELL_COUNT    as  no_of_cells
 
 class Cell:
     all = [] #this is a class attribute a collection of all instances created
+    cell_count_label_object = None
+    cell_count = no_of_cells
     def __init__(self, x,y, is_mine=False):
         self.is_mine = is_mine
+        self.is_opened = False
         self.cell_btn_object = None
         self.x = x
         self.y = y
@@ -56,6 +61,18 @@ class Cell:
         btn.bind('<Button-3>', self.right_click_response)
         self.cell_btn_object = btn
 
+    @staticmethod
+    def create_cell_count_label(container):
+        lbl = Label(
+        	container,
+            text = f"Safe Cells Left: {Cell.cell_count}",
+            bg = 'black',
+            fg = 'white',
+            font=("", 14)
+        )
+        Cell.cell_count_label_object = lbl
+
+
     def show_mine(self):
         # write a logic that interruppts the game
         # and that displays a message that the play has lost!
@@ -65,8 +82,16 @@ class Cell:
     
 
     def show_no_of_surrounding_mine_cells(self):
-        print(self.get_length_of_surrounding_mine_cells)
-        self.cell_btn_object.configure(text = self.get_length_of_surrounding_mine_cells)
+        if not self.is_opened:
+            Cell.cell_count -= 1
+            print(self.get_length_of_surrounding_mine_cells)
+            self.cell_btn_object.configure(text = self.get_length_of_surrounding_mine_cells)
+            if Cell.cell_count_label_object:
+                Cell.cell_count_label_object.configure(
+                        text = f"Cells Left: {Cell.cell_count}"
+                        )
+        self.is_opened = True
+
 
 
     def left_click_response(self, event):

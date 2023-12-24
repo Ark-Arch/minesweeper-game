@@ -1,5 +1,10 @@
 GAME OBJECTIVES AND THOUGHT PROCESSES WHILE BUILDING THE PROJECT!!!
 
+NOTE FOR LATER:
+- create a communication between the desktop app and a web server using django
+- include authentication and rest as well.
+- consider dockerizing the tkinter app as well
+
 the player guesses what cells have mines and what does not!.
 LEFT-CLICK on cells without mines to progress in the game
 
