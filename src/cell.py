@@ -116,9 +116,6 @@ class Cell:
             if Cell.cell_count == no_of_mines:
                 self.cell_btn_object.configure(command = Cell.congratulations)
 
-
-
-
         #Cancel all Left and Right click events if the cell is already opened
         self.cell_btn_object.unbind('<Button-1>')
         self.cell_btn_object.unbind('<Button-3>')
