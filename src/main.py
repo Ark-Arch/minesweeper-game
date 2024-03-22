@@ -62,9 +62,7 @@ Cell.motivation_object.place(
         anchor = CENTER
         )
 
-print(Cell.get_cell_list())
-the_cell = Cell.get_cell_by_coordinates(0,0)
-print(f'{the_cell}')
+
 
 
 # Run the window
